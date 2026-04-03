@@ -1,0 +1,9 @@
+Today's aim:-
+
+Make a password generator app in React.
+    Concepts covered:-
+        -use of useState hook
+        -use of useEffect hook
+        -optimize using useCallBakc hook
+        -Apply copy to clipboard functionality
+        
