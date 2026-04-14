@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addExpense } from '../features/expenseSlice';
 
-function Form() {
+function Form({ darkMode }) {
 
 
     const categories = [
@@ -54,10 +54,10 @@ function Form() {
 
 
   return (
-    <div className="h-[600px] md:w-screen h-[700px] flex items-center justify-center bg-[#F9FAF5]">
+    <div className={`h-[600px] md:w-screen h-[700px] flex items-center justify-center ${darkMode ? "bg-[#0A1123]" : "bg-[#F9FAF5]"}`}>
       <form
       onSubmit={handleFormSubmit}
-        className="w-[80%] md:w-full max-w-lg bg-[#F2F1EC] p-6 rounded-2xl shadow-2xl space-y-4"
+        className={`w-[80%] md:w-full max-w-lg p-6 rounded-2xl shadow-2xl space-y-4 ${ darkMode ? "bg-[#E6EFF8]" : "bg-[#F2F1EC]" } `}
       >
         <h2 className="text-2xl font-semibold text-gray-800 text-center font-sans">
           Create New Expense

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { delExpense } from '../features/expenseSlice';
 
-function Expenses({ id }) {
+function Expenses({ id, darkMode }) {
 
     const expenses = useSelector((state) => state.expenses);
     const expense = expenses.find((expense) => expense.id == id)
@@ -17,7 +17,7 @@ function Expenses({ id }) {
 
 
   return (
-    <div className="p-2 w-full min-w-[300px] max-w-md bg-white rounded-xl shadow-md p-5 space-y-4 my-[15px]">
+    <div className={`p-2 w-full min-w-[300px] max-w-md rounded-xl shadow-md p-5 space-y-4 my-[15px] ${ darkMode ? "bg-[#E4EDF6]" : "bg-white" } `}>
       
       {/* Amount */}
       <h2 className="text-2xl font-semibold text-green-600">

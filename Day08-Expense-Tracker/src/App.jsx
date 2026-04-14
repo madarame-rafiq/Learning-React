@@ -3,8 +3,11 @@ import Form from "./components/Form"
 import Navbar from "./components/Navbar"
 import { useSelector, useDispatch } from "react-redux";
 import { changeFilter } from "./features/expenseSlice"; 
+import { useState } from "react";
 
 function App() {
+
+  const [darkMode, setDarkmode] = useState(false);
 
 
   const dispatch = useDispatch()
@@ -45,12 +48,12 @@ function App() {
 
   return (
     <>
-      <div className="w-screen min-h-screen px-[10px] py-[15px] bg-[#F9FAF5]">
-        <Navbar />
-        <Form />
+      <div className={`w-screen min-h-screen px-[10px] py-[15px] ${darkMode ? "bg-[#0A1123]" : "bg-[#F9FAF5]"}`}>
+        <Navbar darkMode={darkMode} setDarkmode={setDarkmode} />
+        <Form darkMode={darkMode} />
 
 
-        <span className="text-2xl font-medium font-[system-ui]">Filter By:</span><select
+        <span className={`text-2xl font-medium font-[system-ui] ${ darkMode ? "text-white" : "" } `}>Filter By:</span><select
           name="category"
           value={filterBy}
           onChange={(e) => handleFilterChange(e.target.value)}
@@ -68,12 +71,12 @@ function App() {
           
           {
             filterBy === "all" ? expenses.map((expense) => (
-                <Expenses key={expense.id} id={expense.id} />
+                <Expenses key={expense.id} id={expense.id} darkMode={darkMode} />
               )):
             expenses
               .filter((expense) => filterBy === expense.category)
               .map((expense) => (
-                <Expenses key={expense.id} id={expense.id} />
+                <Expenses key={expense.id} id={expense.id} darkMode={darkMode} />
               ))
           }
           
