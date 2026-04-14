@@ -39,20 +39,25 @@ function Form() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    dispatch(addExpense({product: prodname, amount: amount, category: cat, desc: desc, date, date}))
-    setName("")
-    setAmount(0)
-    setDesc("")
-    setCat("Others")
-    setDate("")
+    if (prodname && amount > 0 && date){
+      console.log("inside dispatch")
+      dispatch(addExpense({product: prodname, amount: amount, category: cat, desc, date}))
+      setName("")
+      setAmount(0)
+      setDesc("")
+      setCat("Others")
+      setDate("")
+    }else{
+      alert("Please fill the form")
+    }
   }
 
 
   return (
-    <div className="w-screen h-[700px] flex items-center justify-center bg-[#F9FAF5]">
+    <div className="h-[600px] md:w-screen h-[700px] flex items-center justify-center bg-[#F9FAF5]">
       <form
       onSubmit={handleFormSubmit}
-        className="w-full max-w-lg bg-[#F2F1EC] p-6 rounded-2xl shadow-2xl space-y-4"
+        className="w-[80%] md:w-full max-w-lg bg-[#F2F1EC] p-6 rounded-2xl shadow-2xl space-y-4"
       >
         <h2 className="text-2xl font-semibold text-gray-800 text-center font-sans">
           Create New Expense

@@ -4,7 +4,7 @@ import expenseReducer from "../features/expenseSlice"
 const loadExpenses = () => {
     try{
         const storedExpenses = localStorage.getItem("expenses")
-        return storedExpenses ? {expenses: JSON.parse(storedExpenses)} : undefined 
+        return storedExpenses ? {expenses: JSON.parse(storedExpenses), filterBy: "all"} : undefined 
     }catch{
         return undefined
     }

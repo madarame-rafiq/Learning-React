@@ -17,7 +17,7 @@ function Expenses({ id }) {
 
 
   return (
-    <div className="w-full min-w-[300px] max-w-md bg-white rounded-xl shadow-md p-5 space-y-4 my-[15px] hover:">
+    <div className="p-2 w-full min-w-[300px] max-w-md bg-white rounded-xl shadow-md p-5 space-y-4 my-[15px]">
       
       {/* Amount */}
       <h2 className="text-2xl font-semibold text-green-600">
@@ -36,7 +36,7 @@ function Expenses({ id }) {
         {/* Right side */}
         <div className="space-y-2 text-right">
           <p><span className="font-medium">Date:</span>{ expense.date }</p>
-          <p><span className="font-medium">Desc:</span>{ expense.date }</p>
+          <p><span className="font-medium">Desc:</span>{ expense.desc }</p>
           <button className='bg-red-500 text-white text-medium cursor-pointer py-[5px] px-[12px] rounded-lg ' onClick={handleDelete}>Delete</button>
         </div>
 

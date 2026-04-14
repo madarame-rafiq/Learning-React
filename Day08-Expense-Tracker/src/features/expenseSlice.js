@@ -3,8 +3,8 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 export const expenseSlice = createSlice({
     name: "expense",
     initialState: {
-        expenses : [{}],
-        filterBy: "all"
+        expenses : [],
+        filterBy: ""
     },
     reducers:{
         addExpense: (state, action) => {
